@@ -1,0 +1,32 @@
+name: Sync Afdian Sponsors
+on: 
+    schedule:
+        - cron: '0 0 * * *'
+    workflow_dispatch:
+
+jobs:
+    main:
+        name: Sync Afdian Sponsors
+        runs-on: [ubuntu-latest]
+        permissions: 
+            contents: write
+        env:
+            AFDIAN_TOKEN: ${{ secrets.AFDIAN_TOKEN }}
+        steps:
+            - name: Check out repository code
+              uses: actions/checkout@v4
+            - name: Setup NodeJS
+              uses: actions/setup-node@v4
+              with:
+                node-version: 20
+                cache: 'pnpm'
+            - name: Install dependencies
+              run: |
+                npm i -g pnpm
+                pnpm i
+            - name: Update sponsors list
+              run: node index.js
+            - name: Commit and Push
+              uses: stefanzweifel/git-auto-commit-action@v5
+              with:
+                commit_message: Update sponsors list
