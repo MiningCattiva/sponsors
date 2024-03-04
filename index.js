@@ -9,7 +9,7 @@ function buildAfdianApiRequestBody(params) {
     const token = process.env.AFDIAN_TOKEN;
 
     if (!token) {
-        throw new Error('AFDIAN_TOKEN is empty')
+        throw new Error('AFDIAN_TOKEN is empty');
     }
 
     const ts = Math.floor(Date.now() / 1000);
@@ -72,9 +72,13 @@ async function main() {
         page++;
     }
 
+    const file = {
+        count: sponsors.length,
+        list: sponsors,
+    };
     fs.writeFileSync(
         path.resolve(__dirname, 'sponsors.json'),
-        JSON.stringify(sponsors, null, 2)
+        JSON.stringify(file, null, 2)
     );
 }
 
