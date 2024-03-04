@@ -10,8 +10,6 @@ jobs:
         runs-on: [ubuntu-latest]
         permissions: 
             contents: write
-        env:
-            AFDIAN_TOKEN: ${{ secrets.AFDIAN_TOKEN }}
         steps:
             - name: Check out repository code
               uses: actions/checkout@v4
@@ -24,6 +22,8 @@ jobs:
                 npm i -g pnpm
                 pnpm i
             - name: Update sponsors list
+              env:
+                AFDIAN_TOKEN: ${{ secrets.AFDIAN_TOKEN }}
               run: node index.js
             - name: Commit and Push
               uses: stefanzweifel/git-auto-commit-action@v5
