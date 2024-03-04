@@ -9,8 +9,7 @@ function buildAfdianApiRequestBody(params) {
     const token = process.env.AFDIAN_TOKEN;
 
     if (!token) {
-        console.error('AFDIAN_TOKEN is empty');
-        exit(1);
+        throw new Error('AFDIAN_TOKEN is empty')
     }
 
     const ts = Math.floor(Date.now() / 1000);
