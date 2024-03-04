@@ -1,7 +1,10 @@
-[
-  {
-    "id": "5560c4a6d7e411ee8ff152540025c377",
-    "name": "你弟含王",
-    "avatar": "https://pic1.afdiancdn.com/user/5560c4a6d7e411ee8ff152540025c377/avatar/901f1e96bec6708cab92ce7de1686d8b_w2316_h2316_s786.jpeg"
-  }
-]
+{
+  "count": 1,
+  "list": [
+    {
+      "id": "5560c4a6d7e411ee8ff152540025c377",
+      "name": "你弟含王",
+      "avatar": "https://pic1.afdiancdn.com/user/5560c4a6d7e411ee8ff152540025c377/avatar/901f1e96bec6708cab92ce7de1686d8b_w2316_h2316_s786.jpeg"
+    }
+  ]
+}
